@@ -1,0 +1,32 @@
+[project]
+name = "used-cars-analyzer"
+version = "0.1.0"
+description = "ML-проект: предсказание цены подержанных авто (EDA, модели, Telegram-бот)."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Рантайм Telegram-бота (bot.py). Версии совпадают с README.
+    # scikit-learn==1.6.1 обязателен: на нём сериализован car_price_model.pkl.
+    "numpy<2",
+    "scikit-learn==1.6.1",
+    "pandas<3",
+    "joblib",
+    "python-telegram-bot>=20",
+    # loader.py качает датасет с Kaggle при первом запуске.
+    "kaggle",
+    # app.py читает BOT_TOKEN из .env.
+    "python-dotenv",
+]
+
+[dependency-groups]
+# Зависимости только для ноутбуков EDA/моделей (research/*.ipynb).
+# Ставятся отдельно: uv sync --group notebooks  (или --all-groups).
+notebooks = [
+    "matplotlib",
+    "seaborn",
+    "ipykernel",
+]
+
+[tool.uv]
+# Проект — набор скриптов и ноутбуков, не устанавливаемый пакет.
+package = false

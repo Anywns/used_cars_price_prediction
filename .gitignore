@@ -1,0 +1,30 @@
+# uv / виртуальное окружение
+.venv/
+
+.claude/
+.thoughts/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Логи запусков
+logs/
+*.log
+
+# Артефакты данных и модели (генерируются в Colab, большие)
+vehicles.csv
+vehicles_clean.csv
+*.pkl
+
+# Временные файлы Office
+~$*
+*.pptx
+
+# Kaggle credentials
+kaggle.json
+
+# Секреты (токены бота и т.п.)
+.env
+
+.idea/
